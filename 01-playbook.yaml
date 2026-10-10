@@ -1,4 +1,5 @@
 - name: Connect to a server
+  hosts:frontend
   tasks:
   - name: ping
     ansible.builtin.ping:
