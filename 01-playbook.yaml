@@ -3,4 +3,4 @@
   tasks:
   - name: ping
     ansible.builtin.ping:
-    data: 3.87.43.79
+      data: 3.87.43.79
