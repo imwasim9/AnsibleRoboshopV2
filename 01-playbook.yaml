@@ -1,3 +1,5 @@
 - name: Connect to a server
-  ansible.builtin.ping:
+  tasks:
+  - name: ping
+    ansible.builtin.ping:
     data: 3.87.43.79
