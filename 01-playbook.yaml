@@ -1,0 +1,3 @@
+- name: Connect to a server
+  ansible.builtin.ping:
+    data: 3.87.43.79
