@@ -1,0 +1,24 @@
+- name: functions
+  hosts: local
+  connection: local
+  vars:
+    technologies: DevOps, Linux, Shell, Ansible
+    name: Shaik Wasim Akram
+    gmail: iNFo@GMAIL.com
+    ipaddress: 12345.123.12.1
+    # dictionary == map
+    tags: 
+      Application: payment
+      Environment: dev
+    # List
+    listTags:
+    - key: Application
+      value: payment
+    - key: environment
+      value: dev
+  tasks:
+  - name: default variable
+    ansible.builtin.debug:
+      msg: "Nationality: {{nationality | default('indian')}}"
+
+
