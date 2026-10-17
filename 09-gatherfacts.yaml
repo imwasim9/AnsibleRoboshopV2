@@ -1,0 +1,21 @@
+- name: install nginx based on os using ansible_facts
+  hosts: local
+  connection: local
+  become: yes
+  tasks:
+  - name: install nginx only if it is redhat os family
+    ansible.builtin.dnf:
+      name: nginx
+      state: present
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enabled: yes
+    when: ansible_os_family == "Redhat" # use ansible_ when referring the facts.
+  
+  - name: install nginx if redhat
+      ansible.builtin.apt:
+        name: nginx
+        state: latest
+      when: ansible_os_family == "Debian"
+
