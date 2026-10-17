@@ -3,6 +3,9 @@
   connection: local
   become: yes
   tasks:
+  - name: print facts
+    ansible.builtin.debug:
+      msg: "{{ ansible_facts }}"
   - name: install nginx only if it is redhat os family
     ansible.builtin.dnf:
       name: nginx
