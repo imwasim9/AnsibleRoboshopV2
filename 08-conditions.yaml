@@ -8,7 +8,7 @@
   # vars:
       # number: 12
   tasks:
-    name: check number is less than 10 or not
+  - name: check number is less than 10 or not
       ansible.builtin.debug:
         msg: "Given number {{ number }} is less than 10"
     when: number < 10
