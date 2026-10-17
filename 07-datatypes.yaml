@@ -16,4 +16,4 @@
   tasks:
   - name: print course high level details
     ansible.builtin.debug:
-      msg: "Course name: {{Course}} is really worth: {{is_worth}} tools and concepts used are {{tools}} \n {{concepts}} ." 
+      msg: "Course name: {{Course}} is really worth: {{is_worth}} tools and concepts used are {{tools}}\n{{concepts}} ." 
