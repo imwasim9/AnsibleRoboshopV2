@@ -29,4 +29,67 @@
     ansible.builtin.debug:
       msg: "list items after converting map to list: {{ tags | dict2items }}"
 
+  - name: convert list into map
+    ansible.builtin.debug:
+      msg: "tag map: {{ listTags | items2dict }}"
+  
+  - name: read yaml and store into a variable
+    ansible.builtin.set_fact:
+      student_yaml: "{{ lookup('file', 'student.yaml') | from_yaml}}"
+
+  - name: convert yaml to json
+    ansible.builtin.debug:
+      msg: "student_json: {{ student_yaml | to_json }}"
+    
+  - name: Copy using inline content
+    ansible.builtin.copy:
+      content: "{{ student_yaml | to_nice_json}}"
+      dest: ./student-data.json
+  
+  - name: convert to uppercase
+    ansible.builtin.debug:
+      msg: "upper case name: {{name | upper }}"
+
+  - name: convert to lower case
+    ansible.builtin.debug:
+      msg: "upper case name: {{ gmail | lower }}"
+  
+  - name: check ip is valid or not
+    ansible.builtin.debug:
+      msg: "{{ ipaddress | ansible.utils.ipv4 }}"
+  
+  - name: grep for root # we use ansible.builtin.command for simple linux command like reading varibles, ls
+    # but uses ansible.builtin.shell for piping, redirecting and some other complex commands
+    # ansible.builtin.command: cat /etc/passwd | grep root
+    ansible.builtin.shell: cat /etc/passwd | grep root
+    register: command_output
+  
+  - name: print the command_output
+    ansible.builtin.debug:
+      msg: "{{ command_output }}"
+
+  - name: redirect the output 
+    ansible.builtin.command: ls -ltr >> /tmp/output.txt
+    register: redirect_output
+    ignore_errors: true
+
+  - name: print redirect_output
+    ansible.builtin.debug:
+      msg: "{{ redirect_output }}"
+  
+  - name: redirect the output 
+    ansible.builtin.shell: ls -ltr >> /tmp/output.txt
+    register: redirect_shell_output
+
+  - name: print redirect_output
+    ansible.builtin.debug:
+      msg: "{{ redirect_shell_output }}"
+  
+
+
+
+
+  
+
+
 
