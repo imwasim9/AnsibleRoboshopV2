@@ -20,5 +20,13 @@
   - name: default variable
     ansible.builtin.debug:
       msg: "Nationality: {{nationality | default('indian')}}"
+  
+  - name: convert string to list
+    ansible.builtin.debug:
+      msg: "Technologies are: {{ technologies | split(',')}}"
+  
+  - name: convert dict or map to list
+    ansible.builtin.debug:
+      msg: "list items after converting map to list: {{ tags | dict2items }}"
 
 
