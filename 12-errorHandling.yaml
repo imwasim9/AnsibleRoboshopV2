@@ -14,4 +14,4 @@
   
   - name: create user
     ansible.builtin.commamd: useradd roboshop
-    when: user_output != 0
+    when: user_output.rc != 0
