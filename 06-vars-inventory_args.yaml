@@ -1,0 +1,24 @@
+# Variables preference is like below
+# 1. args or command line
+# 2. from task
+# 3. files
+# 4. prompt
+# 5. play level
+# 6. inventory
+
+- name: variables using inventory
+  hosts: local
+  connection: local
+  tasks:
+  - name: variables using inventory
+    ansible.builtin.debug:
+      msg: "Course name is {{ COURSE }} , duration of the course is {{ DURATION }} and learner is {{ TRAINEE }}"
+- name: variables from args
+  hosts: local
+  connection: local
+  tasks:
+  - name: variables using command args
+    ansible.builtin.debug:
+      msg: "Course Name is: {{ COURSE }}, Duratioin: {{ DURATION }}, Trainee: {{ Trainee }}"
+
+# ansible-playbook -i inventory.ini -e ansible_user=ec2-user -e ansible_password=DevOps321 -e "COURSE=Ansible" -e "DURATION=10HRS" -e "Trainer=Wasim" 06-vars-inventory_args.yaml
