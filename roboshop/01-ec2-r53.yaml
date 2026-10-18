@@ -1,7 +1,6 @@
 - name: create ec2 instance and route 53 records
   hosts: local
   connection: local
-  become: yes
   vars:
     sg_id: "sg-057e215dc23486bf8"
     ami_id: "ami-0220d79f3f480ecf5"
