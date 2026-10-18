@@ -7,8 +7,11 @@
     zone_id: "Z0498907312QP9JRHN116"
     domain_name: "wasdaws.cyou"
 
-    instances: 
-    - mongodb
+# commenting the below as I wish to pass instances from cmd using -e
+    # instances: 
+    # - mongodb
+    # - redis
+    # - catalogue
 
   tasks:
   - name: create an ec2-instance
