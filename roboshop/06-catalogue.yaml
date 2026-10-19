@@ -55,11 +55,11 @@
       state: present
   
   - name: evalute catalogue products loaded in mongodb
-    ansible.builtin.command: (mongosh $MONGODB_HOST --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
+    ansible.builtin.command: (mongosh mongodb.wasdaws.cyou  --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
     register: catalogue_output
   
   - name: load catalogue products into mongodb
-    ansible.builtin.shell: mongosh --host $MONGODB_HOST </app/db/master-data.js
+    ansible.builtin.shell: mongosh --host mongodb.wasdaws.cyou </app/db/master-data.js
     when: catalogue_output.stdout | int < 0
  
   - name: daemon reload start and enable service
