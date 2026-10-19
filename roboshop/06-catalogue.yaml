@@ -55,7 +55,7 @@
       state: present
   
   - name: evalute catalogue products loaded in mongodb
-    ansible.builtin.command: (mongosh mongodb.wasdaws.cyou  --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
+    ansible.builtin.command: mongosh mongodb.wasdaws.cyou  --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')"
     register: catalogue_output
   
   - name: load catalogue products into mongodb
