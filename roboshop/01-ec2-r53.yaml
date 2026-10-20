@@ -3,7 +3,7 @@
   connection: local
   vars:
     sg_id: "sg-057e215dc23486bf8"
-    ami_id: "ami-0220d79f3f480ecf5"
+    ami_id: "ami-0055977a6e828a4f4"
     zone_id: "Z0498907312QP9JRHN116"
     domain_name: "wasdaws.cyou"
 
