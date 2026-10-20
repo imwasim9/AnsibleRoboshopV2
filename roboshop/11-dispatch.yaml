@@ -5,6 +5,11 @@
   - name: install golang
     ansible.builtin.command: dnf install golang -y
   
+  - name: install maven 3.5
+    ansible.builtin.dnf:
+      name: maven
+      state: present
+  
   - name: create system user
     ansible.builtin.user:
       name: roboshop
