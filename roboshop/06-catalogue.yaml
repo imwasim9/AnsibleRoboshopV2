@@ -63,7 +63,7 @@
     when: catalogue_output.stdout | int < 0
  
   - name: daemon reload start and enable service
-    ansible.builtin.service:
+    ansible.builtin.systemd_service:
       name: catalogue
       state: started
       enabled: true
