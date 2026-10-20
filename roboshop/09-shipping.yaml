@@ -83,6 +83,6 @@
     ansible.builtin.systemd_service:
       name: shipping
       enable: true
-      daemon-relaod: true
+      daemon-reload: true
       state: started
       
