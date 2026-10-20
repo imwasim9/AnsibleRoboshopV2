@@ -4,12 +4,7 @@
   tasks:
   - name: install golang
     ansible.builtin.command: dnf install golang -y
-  
-  - name: install maven 3.5
-    ansible.builtin.dnf:
-      name: maven
-      state: present
-  
+    
   - name: create system user
     ansible.builtin.user:
       name: roboshop
@@ -43,16 +38,6 @@
       src: /tmp/dispatch.zip
       dest: /app
       remote_src: yes
-
-  - name: run maven package by moving to /app dir
-    ansible.builtin.command: mvn clean package
-    args:
-      chdir: /app  
-
-  - name: move dispatch jar file form target to /app dir
-    ansible.builtin.command: mv target/dispatch-1.0.jar dispatch.jar 
-    args:
-      chdir: /app
 
   - name: copy dispatch service
     ansible.builtin.copy:
