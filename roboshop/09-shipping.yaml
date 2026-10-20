@@ -79,7 +79,7 @@
     - /app/db/app-user.sql 
     - /app/db/master-data.sql
 
-  - name: enable daemon-reload and start service
+  - name: daemon-reload, enable and start service
     ansible.builtin.systemd_service:
       name: shipping
       enable: true
