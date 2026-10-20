@@ -15,13 +15,13 @@
   
   - name: remove zip file if already exists
     ansible.builtin.file:
-      path: /tmp/dipatch.zip
+      path: /tmp/dispatch.zip
       state: absent
 
-  - name: download dipatch application always for new updates if any
+  - name: download dispatch application always for new updates if any
     ansible.builtin.get_url:
-      url: https://roboshop-artifacts.s3.amazonaws.com/dipatch-v3.zip
-      dest: /tmp/dipatch.zip
+      url: https://roboshop-artifacts.s3.amazonaws.com/dispatch-v3.zip
+      dest: /tmp/dispatch.zip
   
   - name: remove app directory if exists
     ansible.builtin.file:
@@ -33,9 +33,9 @@
       path: /app
       state: directory
 
-  - name: extract dipatch application
+  - name: extract dispatch application
     ansible.builtin.unarchive:
-      src: /tmp/dipatch.zip
+      src: /tmp/dispatch.zip
       dest: /app
       remote_src: yes
 
@@ -44,15 +44,15 @@
     args:
       chdir: /app  
 
-  - name: move dipatch jar file form target to /app dir
-    ansible.builtin.command: mv target/dipatch-1.0.jar dipatch.jar 
+  - name: move dispatch jar file form target to /app dir
+    ansible.builtin.command: mv target/dispatch-1.0.jar dispatch.jar 
     args:
       chdir: /app
 
-  - name: copy dipatch service
+  - name: copy dispatch service
     ansible.builtin.copy:
-      src: dipatch.service
-      dest: /etc/systemd/system/dipatch.service
+      src: dispatch.service
+      dest: /etc/systemd/system/dispatch.service
 
   - name: install dependencies by go mod init and build
     ansible.builtin.command: "{{ item }}"
