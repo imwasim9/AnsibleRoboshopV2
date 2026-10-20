@@ -67,7 +67,7 @@
       dest: /etc/systemd/system/shipping.service
 
   - name: import data into mysql
-    ansible.mysql.mysql_db:
+    community.mysql.mysql_db:
       state: import
       name: all
       login_host: mysql.wasdaws.cyou
