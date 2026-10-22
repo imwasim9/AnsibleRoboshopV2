@@ -1,0 +1,8 @@
+CART_HOST: cart.wasdaws.cyou
+MYSQL_HOST: mysql.wasdaws.cyou
+RABBITMQ_HOST: rabbimtq.wasdaws.cyou
+CATALOGUE_HOST: catalogue.wasdaws.cyou
+PAYMENT_HOST: payment.wasdaws.cyou
+MONGODB_HOST: mongodb.wasdaws.cyou
+REDIS_HOST: redis.wasdaws.cyou
+SHIPPING_HOST: shipping.wasdaws.cyou
