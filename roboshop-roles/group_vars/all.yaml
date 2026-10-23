@@ -1,4 +1,5 @@
 CART_HOST: cart.wasdaws.cyou
+USER_HOST: user.wasdaws.cyou
 MYSQL_HOST: mysql.wasdaws.cyou
 RABBITMQ_HOST: rabbimtq.wasdaws.cyou
 CATALOGUE_HOST: catalogue.wasdaws.cyou
